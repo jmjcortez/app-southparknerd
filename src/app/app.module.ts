@@ -9,6 +9,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { LatestBlogComponent } from './components/blogs/latest-blog/latest-blog.component';
 import { BlogListComponent } from './components/blogs/blog-list/blog-list.component';
 import { BlogCardComponent } from './components/blogs/blog-card/blog-card.component';
+import { BlogPostComponent } from './components/blogs/blog-post/blog-post.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { BlogCardComponent } from './components/blogs/blog-card/blog-card.compon
     LatestBlogComponent,
     HomepageComponent,
     BlogListComponent,
-    BlogCardComponent
+    BlogCardComponent,
+    BlogPostComponent,
   ],
   imports: [
     BrowserModule,
