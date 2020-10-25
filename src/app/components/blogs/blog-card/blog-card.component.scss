@@ -1,0 +1,29 @@
+.card {
+  width: 576px;
+  margin-bottom: 100px;
+  margin-right: 50px;
+
+  .card-img-top {
+    height: 300px;
+  }
+
+  .card-title {
+    color: #252525;
+    font-size: 30px;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-text {
+    color: #808080;
+  }
+
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #EE3253;
+    border-color: #EE3253;
+  }
+
+}

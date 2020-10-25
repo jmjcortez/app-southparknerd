@@ -1,0 +1,51 @@
+#latest-blog-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+
+  a {
+    color: #252525;
+    text-decoration: none;
+  }
+
+  .title-container {
+    font-family: "southpark", Arial, sans-serif;    
+    
+    a {
+        color: #e3a788;
+    }
+  }
+
+  .content-container {
+    display: flex;
+    margin-top: 35px;
+
+    .thumbnail {
+      width: 574px;
+      height: 300px;
+      margin-right: 75px;
+    }
+
+    .text-container {
+      width: 600px;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      .headline {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-family: "southpark", Arial, sans-serif;    
+        font-size: 40px;
+      }
+
+      .subtitle {
+        // font-family: 'Roboto', sans-serif;
+        // font-family: 'Source Code Pro', monospace;
+        font-size: 20px;
+      }
+    }
+  }
+}

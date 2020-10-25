@@ -1,1 +1,35 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "southpark";
+  src: local("southpark", url(./assets/fonts/southpark.ttf)) format("opentype");
+}
+
+@font-face {
+  font-family: "robotolight";
+  src: local("robotolight", url(./assets/fonts/robotolight.ttf)) format("opentype");
+}
+
+.grow { 
+  transition: all .2s ease-in-out; 
+}
+.grow:hover { 
+  transform: scale(1.1); 
+}
+
+body {
+  margin: 0;
+  font-family: 'Source Code Pro', monospace;
+
+  .section-title {    
+    font-family: "southpark", Arial, sans-serif;
+    color: #e3a788;
+    font-size: 45px;
+  }
+
+  .southpark-font {
+    font-family: "southpark", Arial, sans-serif;
+  }
+
+}

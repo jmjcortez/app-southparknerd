@@ -1,0 +1,55 @@
+#navigation-bar-container {
+  background-color: #88e4df;
+  height: 25vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "southpark", Arial, Helvetica, sans-serif;
+
+  #title-container {
+    font-size: 12vh;
+    height: 12vh;
+    color: #e3a788;
+    margin-bottom: 2vh;
+  }
+
+  #buttons-container {
+
+    width: 50vw;
+
+    display: flex;    
+    justify-content: space-around;
+    align-items: center;
+
+    .button-container {
+      width: 5vw;
+
+      a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 5vh;
+        display: table-cell;
+        vertical-align: middle;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        color: #e3a788;
+      }
+
+      .fit {
+        font-size: 3vh;
+      }
+    }
+  
+  }
+
+}
+
+@media only screen and (max-width: 800px) {
+  // Turn to burger
+}
