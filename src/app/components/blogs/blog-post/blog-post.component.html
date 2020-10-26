@@ -1,1 +1,22 @@
-<p>blog-post works!</p>
+<div id="blog-page-container">
+  <div id="blog-post-container" *ngIf="post">
+    <span class="title-container southpark-font">{{post.title}}</span>
+    
+    <hr class="title-line">
+    
+    <div class="author-container">{{post.author}}</div>
+    
+    <div class="date-container">{{post.date_posted}}</div>
+    
+    <div class="thumbnail-container">
+      <div class="thumbnail-element-container">
+        <img class="thumbnail" src="{{post.thumbnail_link}}">
+        <span class="thumbnail-caption">S01E01 Cartman Gets An Anal Probe. The pilot episode of South Park</span>
+      </div>
+    </div>
+  
+    <div class="content-container" [innerHTML]="post.content">
+    </div>
+
+  </div>
+</div>

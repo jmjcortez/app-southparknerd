@@ -1,10 +1,10 @@
 <div id="latest-blog-container">
   <div class="title-container grow"><a class="title section-title" routerLink="">Latest Blog Post</a></div>
-  <div class="content-container">
-    <img class="thumbnail grow " src="https://411mania.com/wp-content/uploads/2018/07/South-Park-Cartman-Gets-an-Anal-Probe-645x370.jpg" />
+  <div class="content-container" *ngIf="latestPost">
+    <img class="thumbnail grow " src="{{latestPost.thumbnail_link}}" />
     <div class="text-container">
-      <a class="headline grow" routerLink="">What made south Park Season 1 so successful?</a>
-      <a class="subtitle grow" routerLink="">Take a loot at how 4 boys made from construction papers revolutionised modern tv.</a>
+      <a class="headline grow" routerLink="">{{latestPost.title}}</a>
+      <a class="subtitle grow" routerLink="">{{latestPost.subtitle}}</a>
     </div>
   </div>
 </div>
