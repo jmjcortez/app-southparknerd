@@ -1,5 +1,10 @@
 <div id="blog-page-container">
-  <div id="blog-post-container" *ngIf="post">
+  <!-- create a common loading comp -->
+  <div class="blog-post-container" *ngIf="!post && !error && isLoading">
+    <app-loading-animation></app-loading-animation>
+  </div>
+
+  <div class="blog-post-container" *ngIf="post && !error && !isLoading">
     <span class="title-container southpark-font">{{post.title}}</span>
     
     <hr class="title-line">
@@ -18,5 +23,9 @@
     <div class="content-container" [innerHTML]="post.content">
     </div>
 
+  </div>
+
+  <div class="blog-post-container" *ngIf="!post && error && !isLoading">
+    <app-error-page></app-error-page>
   </div>
 </div>

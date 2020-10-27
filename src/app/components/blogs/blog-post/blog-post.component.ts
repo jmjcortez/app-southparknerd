@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { Post } from 'src/app/models/post';
 import { PostService } from 'src/app/services/post.service';
@@ -12,7 +13,10 @@ import { PostService } from 'src/app/services/post.service';
 })
 export class BlogPostComponent implements OnInit {
 
+  isLoading = false;
+
   post: Post;
+  error: HttpErrorResponse;
 
   constructor(
     private postService: PostService,
@@ -25,10 +29,18 @@ export class BlogPostComponent implements OnInit {
   }
 
   getPost = (id: string): void => {
+
+    this.isLoading = true;
+
+
     this.postService.getPost(id).subscribe(
       (post) => {
+        this.isLoading = false;
         this.post = post;
-        console.log(this.post);
+      },
+      (error: HttpErrorResponse) => {
+        this.isLoading = false;
+        this.error = error;
       }
     );
   }

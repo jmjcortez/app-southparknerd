@@ -10,6 +10,8 @@ import { LatestBlogComponent } from './components/blogs/latest-blog/latest-blog.
 import { BlogListComponent } from './components/blogs/blog-list/blog-list.component';
 import { BlogCardComponent } from './components/blogs/blog-card/blog-card.component';
 import { BlogPostComponent } from './components/blogs/blog-post/blog-post.component';
+import { LoadingAnimationComponent } from './components/blogs/common/loading-animation/loading-animation.component';
+import { ErrorPageComponent } from './components/blogs/common/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { BlogPostComponent } from './components/blogs/blog-post/blog-post.compon
     BlogListComponent,
     BlogCardComponent,
     BlogPostComponent,
+    LoadingAnimationComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule,

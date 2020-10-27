@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { LatestBlogComponent } from '../blogs/latest-blog/latest-blog.component';
 
 import { HomepageComponent } from './homepage.component';
 

@@ -1,0 +1,18 @@
+.error-container {
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 500px;
+    height: 600px;
+  }
+
+  .error-content-container {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      width: 200px;
+    }
+  }
+}

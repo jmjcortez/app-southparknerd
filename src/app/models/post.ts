@@ -7,3 +7,7 @@ export interface Post {
   thumbnail_link: string;
   content: string;
 }
+
+export interface PostList {
+  posts: Post[];
+}

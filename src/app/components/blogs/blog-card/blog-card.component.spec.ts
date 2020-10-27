@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BlogCardComponent } from './blog-card.component';
@@ -7,7 +8,11 @@ describe('BlogCardComponent', () => {
   let fixture: ComponentFixture<BlogCardComponent>;
 
   beforeEach(async () => {
+
     await TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule,
+      ],
       declarations: [ BlogCardComponent ]
     })
     .compileComponents();
@@ -22,4 +27,5 @@ describe('BlogCardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
 });
