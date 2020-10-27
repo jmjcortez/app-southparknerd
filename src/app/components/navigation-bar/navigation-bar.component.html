@@ -1,11 +1,23 @@
 <div id="navigation-bar-container">
+  
+  <nav class="burger-container">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="material-icons menu-icon">menu</i>
+    </button>
+    <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+      Open Menu
+    </Button>
+  </nav>
+  
   <div id="title-container">
     <span id="title">South Park Nerd</span>
   </div>
+  
   <div id="buttons-container">
     <div class="button-container"><a class="navigation-button" routerLink="/">Home</a></div>
     <div class="button-container"><a class="navigation-button" routerLink="/blogs">Blog</a></div>
     <div class="button-container"><a class="navigation-button fit" routerLink="/">Episode Generator</a></div>
     <div class="button-container"><a class="navigation-button" routerLink="/">About</a></div>
   </div>
+  
 </div>

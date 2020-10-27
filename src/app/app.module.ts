@@ -12,6 +12,8 @@ import { BlogCardComponent } from './components/blogs/blog-card/blog-card.compon
 import { BlogPostComponent } from './components/blogs/blog-post/blog-post.component';
 import { LoadingAnimationComponent } from './components/blogs/common/loading-animation/loading-animation.component';
 import { ErrorPageComponent } from './components/blogs/common/error-page/error-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import {  } from './components/'
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { ErrorPageComponent } from './components/blogs/common/error-page/error-p
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
