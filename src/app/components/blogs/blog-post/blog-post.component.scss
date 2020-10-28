@@ -83,3 +83,79 @@
   }
 
 }
+
+@media only screen and (max-width: 800px) {
+  #blog-page-container {
+
+    .blog-post-container {
+      width: 100%;
+
+      .use-padding {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .title-line {
+        margin-left: 15px;
+      }
+      
+      .title-container {
+        font-size: 30px;
+        width: 100%;
+      }
+
+      .thumbnail-container {
+        width: 100%;
+      }
+
+      .author-container, .date-container {
+        font-size: 15px;
+      }
+
+      .thumbnail-element-container {
+
+
+        .thumbnail {
+          width: 100% !important;
+          height: auto !important;
+        }
+        .thumbnail-caption {
+          padding-left: 15px;
+        }
+      }
+
+      .content-container {
+        font-size: 15px;
+        width: 100%;
+
+        p {
+          width: 100%;
+          @extend .use-padding;
+        }
+
+        ul {
+          width: 100%;
+          padding-right: 10px;
+          padding-left: 25px;
+        }
+
+        h1 {
+          width: 100%;
+          font-size: 25px;
+          @extend .use-padding;
+        }
+      }
+
+      .screen-container {
+        img {
+          width: 100% !important;
+          height: auto !important;
+        }
+
+        .screen-caption {
+          @extend .use-padding;
+        }
+      }
+    }
+  }
+}

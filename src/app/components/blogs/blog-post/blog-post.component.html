@@ -5,13 +5,15 @@
   </div>
 
   <div class="blog-post-container" *ngIf="post && !error && !isLoading">
-    <span class="title-container southpark-font">{{post.title}}</span>
+    <div class="use-padding">
+      <span class="title-container southpark-font">{{post.title}}</span>
+    </div>
     
     <hr class="title-line">
     
-    <div class="author-container">{{post.author}}</div>
+    <div class="author-container use-padding">{{post.author}}</div>
     
-    <div class="date-container">{{post.date_posted}}</div>
+    <div class="date-container use-padding">{{post.date_posted}}</div>
     
     <div class="thumbnail-container">
       <div class="thumbnail-element-container">

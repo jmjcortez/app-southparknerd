@@ -1,4 +1,4 @@
-<div id="latest-blog-container">
+<div id="latest-blog-container" *ngIf="latestPost">
   <div class="title-container grow"><a class="title section-title" routerLink="/blogs/{{latestPost.id}}">Latest Blog Post</a></div>
   <div class="content-container" *ngIf="latestPost">
     <img class="thumbnail grow " src="{{latestPost.thumbnail_link}}" routerLink="/blogs/{{latestPost.id}}"/>
