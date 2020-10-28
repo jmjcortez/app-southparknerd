@@ -10,10 +10,10 @@ import { LatestBlogComponent } from './components/blogs/latest-blog/latest-blog.
 import { BlogListComponent } from './components/blogs/blog-list/blog-list.component';
 import { BlogCardComponent } from './components/blogs/blog-card/blog-card.component';
 import { BlogPostComponent } from './components/blogs/blog-post/blog-post.component';
-import { LoadingAnimationComponent } from './components/blogs/common/loading-animation/loading-animation.component';
-import { ErrorPageComponent } from './components/blogs/common/error-page/error-page.component';
+import { LoadingAnimationComponent } from './components/common/loading-animation/loading-animation.component';
+import { ErrorPageComponent } from './components/common/error-page/error-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import {  } from './components/'
+import { AppUiModule } from './components/common/app-ui.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    AppUiModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

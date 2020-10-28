@@ -1,10 +1,10 @@
 <div id="latest-blog-container">
-  <div class="title-container grow"><a class="title section-title" routerLink="">Latest Blog Post</a></div>
+  <div class="title-container grow"><a class="title section-title" routerLink="/blogs/{{latestPost.id}}">Latest Blog Post</a></div>
   <div class="content-container" *ngIf="latestPost">
-    <img class="thumbnail grow " src="{{latestPost.thumbnail_link}}" />
+    <img class="thumbnail grow " src="{{latestPost.thumbnail_link}}" routerLink="/blogs/{{latestPost.id}}"/>
     <div class="text-container">
-      <a class="headline grow" routerLink="">{{latestPost.title}}</a>
-      <a class="subtitle grow" routerLink="">{{latestPost.subtitle}}</a>
+      <a class="headline grow" routerLink="/blogs/{{latestPost.id}}">{{latestPost.title}}</a>
+      <a class="subtitle grow" routerLink="/blogs/{{latestPost.id}}">{{latestPost.subtitle}}</a>
     </div>
   </div>
 </div>

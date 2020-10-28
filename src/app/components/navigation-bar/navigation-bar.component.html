@@ -1,12 +1,23 @@
 <div id="navigation-bar-container">
   
   <nav class="burger-container">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <i class="material-icons menu-icon">menu</i>
+    <button mat-button class="menu-button" [matMenuTriggerFor]="menu">
+      <mat-icon>menu</mat-icon>
     </button>
-    <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-      Open Menu
-    </Button>
+    <mat-menu #menu="matMenu" class='menu-body'>
+      <button mat-menu-item routerLink="/">
+        <span class="southpark-font">Home</span>
+      </button>
+      <button mat-menu-item routerLink="/blogs">
+        <span class="southpark-font">Blog</span>
+      </button>
+      <button mat-menu-item>
+        <span class="southpark-font">Episode Generator</span>
+      </button>
+      <button mat-menu-item>
+        <span class="southpark-font">About</span>
+      </button>
+    </mat-menu>
   </nav>
   
   <div id="title-container">
