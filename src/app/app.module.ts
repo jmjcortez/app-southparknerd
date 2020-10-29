@@ -14,6 +14,8 @@ import { LoadingAnimationComponent } from './components/common/loading-animation
 import { ErrorPageComponent } from './components/common/error-page/error-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppUiModule } from './components/common/app-ui.module';
+import { EpisodeGeneratorPageComponent } from './components/episode-generator/episode-generator-page/episode-generator-page.component';
+import { CharacterCardComponent } from './components/episode-generator/character-card/character-card.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { AppUiModule } from './components/common/app-ui.module';
     BlogPostComponent,
     LoadingAnimationComponent,
     ErrorPageComponent,
+    EpisodeGeneratorPageComponent,
+    CharacterCardComponent,
   ],
   imports: [
     BrowserModule,

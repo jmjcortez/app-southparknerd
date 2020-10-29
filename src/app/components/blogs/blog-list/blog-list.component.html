@@ -11,7 +11,7 @@
     <app-blog-card *ngFor="let post of posts" [post]="post"></app-blog-card>
   </div>
 
-  <div *ngIf="!posts && error && !isLoading">
-    Create a common component or modal
+  <div class="error-container" *ngIf="!posts && error && !isLoading">
+    <app-error-page></app-error-page>
   </div>
 </div>

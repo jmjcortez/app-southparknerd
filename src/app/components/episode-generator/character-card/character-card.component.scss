@@ -1,0 +1,55 @@
+.character-container {
+  height: 150px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+
+  .pic {
+    height: 150px;
+    width: 150px;
+  }
+
+  .name {
+    margin-top: 15px;
+    color: #fd7272;
+  }
+  
+  .focus {
+    animation-duration: 1s;
+    animation-name: a;
+  }
+  
+  .focus:hover, .is-selected {
+    animation-duration: 1s;
+    animation-name: ra;
+    border: 15px solid #60BD71;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  
+  @keyframes a {
+    0% {
+      border: 15px solid #60BD71;
+      border-radius: 50%;
+    }
+    100% {
+      border: 0;
+      border-radius: 0%;
+    }
+  }
+  
+  @keyframes ra{
+    0% {
+      border: 0;
+      border-radius: 0%;
+    }
+    100% {
+      border: 15px solid #60BD71;
+      border-radius: 50%;
+   }
+  }
+  
+}

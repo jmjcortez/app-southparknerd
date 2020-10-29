@@ -16,3 +16,26 @@
     }
   }
 }
+
+@media only screen and (max-width: 800px) {
+  .error-container {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    img {
+      width: 200px;
+      height: 300px;
+    }
+
+    .error-content-container {
+      font-size: 30px;
+      text-align: center;
+      display: flex;
+      align-items: center;
+    }
+
+
+  }
+}

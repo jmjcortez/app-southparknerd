@@ -1,0 +1,88 @@
+<div class="episode-generator-container">
+  <div class="title-container">
+    <h1 class="section-title">Random Episode Generator</h1>
+  </div>
+  <div class="button-container">
+    <button 
+      type="button" 
+      class="btn btn-danger southpark-font grow" data-toggle="tooltip" data-placement="top" title="Randomly generate an episode with a click of a button. You can also input filters or which characters you want to watch">
+      Generate
+    </button>
+  </div>
+
+  <div class="filters-container">
+      <div class="section-title-container" (click)="animateCollapse()">
+        <i class="material-icons" *ngIf="state === 'small'">chevron_right</i>
+        <i class="material-icons" *ngIf="state === 'large'">expand_more</i>
+        <span class="section-title southpark-font">Filters</span>
+      </div>
+      <div class="content-container" [@collapseanimation]='state'>
+        <div class="seasons-container southpark-font">
+          <span class="filter-title">Select season:</span>
+          <div class="buttons-container">
+            <button type="button" class="btn btn-danger southpark-font season-button grow">Any</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">1</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">2</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">3</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">4</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">5</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">6</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">7</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">9</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">10</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">11</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">12</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">13</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">14</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">15</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">16</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">17</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">18</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">19</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">20</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">21</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">22</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">23</button>
+            <button type="button" class="btn btn-danger southpark-font season-button grow">24</button>
+          </div>
+        </div>
+        <div class="other-filter-container southpark-font">
+          <span class="filter-title">Do you want a sad episode?</span>
+          <div class="radio-list">
+            <input type="radio" id="yes" name="isSad" value="true">
+            <label for="true">Yes</label><br>
+            <input type="radio" id="no" name="isSad" value="false">
+            <label for="false">No</label><br>  
+          </div>
+          
+        </div>
+      </div>
+  </div>
+  <div class="filters-container">
+    <div class="section-title-container" (click)="animateCharCollapse()">
+      <i class="material-icons" *ngIf="charactersHidden === 'hidden'">chevron_right</i>
+      <i class="material-icons" *ngIf="charactersHidden === 'reveal'">expand_more</i>
+      <span class="section-title southpark-font">Characters</span>
+    </div>
+    <div class="content-container character-list-container" [@collapsechracters]='charactersHidden'>
+      <span class="filter-title southpark-font">Select which character/s you want to watch?</span>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+      <app-character-card></app-character-card>
+    </div>
+  </div>
+
+</div>

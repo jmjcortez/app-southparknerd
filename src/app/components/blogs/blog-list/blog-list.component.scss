@@ -16,5 +16,17 @@
     justify-content: space-around;
     flex-wrap: wrap;
   }
+
+  .error-container {
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+  }
   
+}
+
+@media only screen and (max-width: 800px) {
+  .error-container {
+    width: 100% !important;
+  }
 }
