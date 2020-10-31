@@ -2,10 +2,31 @@
   <div class="title-container">
     <h1 class="section-title">Random Episode Generator</h1>
   </div>
+  
+  <div class="loading-container" *ngIf="generatingEpisode">
+    <app-loading-animation></app-loading-animation>
+  </div>
+
+  <div class="episode-container">
+    <img class="thumbnail" src="https://southpark-online.nl/assets/images/clips/go-get-some.jpg">
+    <div class="texts-container">
+      <span class="southpark-font title">Butters Bottom Bitch</span>
+      <span class="episode-code">Season 13, Episode 9</span>
+      <div>
+        Starring
+        <span>Butters, Kenny, Kyle, Cartman, Craig, Clyde</span>
+      </div>
+      <span class="synopsis">Synopsis: Butters pays a girl $5 to give him his first kiss, which prompts Butters to start his own "kissing company" and eventually become a pimp. lorem ipsum putang ina flow g bobo ka pati si gloc 9</span>
+    </div>
+
+  </div>
+
   <div class="button-container">
     <button 
       type="button" 
-      class="btn btn-danger southpark-font grow" data-toggle="tooltip" data-placement="top" title="Randomly generate an episode with a click of a button. You can also input filters or which characters you want to watch">
+      class="btn btn-danger southpark-font grow" data-toggle="tooltip" data-placement="top" title="Randomly generate an episode with a click of a button. You can also input filters or which characters you want to watch"
+      (click)="generateEpisode()"
+      [disabled]="generatingEpisode">
       Generate
     </button>
   </div>
@@ -20,39 +41,34 @@
         <div class="seasons-container southpark-font">
           <span class="filter-title">Select season:</span>
           <div class="buttons-container">
-            <button type="button" class="btn btn-danger southpark-font season-button grow">Any</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">1</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">2</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">3</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">4</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">5</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">6</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">7</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">9</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">10</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">11</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">12</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">13</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">14</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">15</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">16</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">17</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">18</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">19</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">20</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">21</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">22</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">23</button>
-            <button type="button" class="btn btn-danger southpark-font season-button grow">24</button>
+            <button 
+              type="button" 
+              class="btn btn-danger southpark-font season-button grow" 
+              [class.is-selected]="season.selected" 
+              *ngFor="let season of episodeQuery.seasons; let i = index"
+              (click)="toggleButton(i)">
+                {{season.number}}
+            </button>
           </div>
         </div>
         <div class="other-filter-container southpark-font">
-          <span class="filter-title">Do you want a sad episode?</span>
+          <span class="filter-title">Show classic episodes only?</span>
           <div class="radio-list">
-            <input type="radio" id="yes" name="isSad" value="true">
+            <input 
+              type="radio" 
+              name="classic" 
+              value=1 
+              [checked]="episodeQuery.isClassic === 1"
+              (change)="toggleClassic(1)">
             <label for="true">Yes</label><br>
-            <input type="radio" id="no" name="isSad" value="false">
-            <label for="false">No</label><br>  
+            
+            <input 
+              type="radio" 
+              name="classic" 
+              value=0
+              [checked]="episodeQuery.isClassic !== 1"
+              (change)="toggleClassic(0)">
+            <label for="true">No</label><br>
           </div>
           
         </div>
@@ -65,23 +81,14 @@
       <span class="section-title southpark-font">Characters</span>
     </div>
     <div class="content-container character-list-container" [@collapsechracters]='charactersHidden'>
-      <span class="filter-title southpark-font">Select which character/s you want to watch?</span>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
-      <app-character-card></app-character-card>
+      <span class="filter-title southpark-font characters-title">Select which character/s you want to watch?</span>
+      <span style="width: 100%">Our algorithm will return an episode that includes all the selected characters. If none is selected, it will show any character</span>
+      <div class="character-card" *ngFor="let character of episodeQuery.characters">
+          <img 
+          class="pic" 
+          src="{{character.avatar_url}}"> 
+          <button class="btn btn-danger southpark-font name grow">{{character.name}}</button>
+      </div>
     </div>
   </div>
 
