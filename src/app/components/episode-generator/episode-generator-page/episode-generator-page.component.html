@@ -7,16 +7,27 @@
     <app-loading-animation></app-loading-animation>
   </div>
 
-  <div class="episode-container">
-    <img class="thumbnail" src="https://southpark-online.nl/assets/images/clips/go-get-some.jpg">
+  <div class="loading-container" *ngIf="error && !generatingEpisode">
+    <app-error-page [isGenerationPage]="true"></app-error-page>
+  </div>
+
+  <div class="episode-container" *ngIf="episode && !generatingEpisode">
+    <img class="thumbnail" src="https://i.kym-cdn.com/photos/images/newsfeed/000/952/854/835.gif">
     <div class="texts-container">
-      <span class="southpark-font title">Butters Bottom Bitch</span>
-      <span class="episode-code">Season 13, Episode 9</span>
-      <div>
-        Starring
-        <span>Butters, Kenny, Kyle, Cartman, Craig, Clyde</span>
+      <span class="southpark-font title">{{episode.title}}</span>
+      <div 
+      class="badge badge-success southpark-font"
+      data-toggle="tooltip" data-placement="top" title="Considered as one of the top episodes"
+      *ngIf="episode.rating > 8.9">
+        Classic
       </div>
-      <span class="synopsis">Synopsis: Butters pays a girl $5 to give him his first kiss, which prompts Butters to start his own "kissing company" and eventually become a pimp. lorem ipsum putang ina flow g bobo ka pati si gloc 9</span>
+      <span class="episode-code"><b>Season:</b> {{episode.season}} <b>Episode:</b> {{episode.episode_number}}</span>
+      <div class="starring-container">
+        <b>Starring: </b>
+        <span class="character-name" *ngFor="let character of episode.characters">{{character.name}} </span>
+      </div>
+      <span class="synopsis"><b>Synopsis:</b> {{episode.synopsis}}</span>
+      <span class="southpark-link">Watch full episodes at <a href="https://www.southparkstudios.com/seasons/south-park">South Park's official website</a></span>
     </div>
 
   </div>
@@ -83,11 +94,15 @@
     <div class="content-container character-list-container" [@collapsechracters]='charactersHidden'>
       <span class="filter-title southpark-font characters-title">Select which character/s you want to watch?</span>
       <span style="width: 100%">Our algorithm will return an episode that includes all the selected characters. If none is selected, it will show any character</span>
-      <div class="character-card" *ngFor="let character of episodeQuery.characters">
+      <div class="character-card" *ngFor="let character of episodeQuery.characters; let i = index">
           <img 
           class="pic" 
           src="{{character.avatar_url}}"> 
-          <button class="btn btn-danger southpark-font name grow">{{character.name}}</button>
+          <button class="btn btn-danger southpark-font name grow" 
+          [class.is-selected]="character.selected"
+          (click)="toggleCharacter(i)">
+            {{character.name}}
+          </button>
       </div>
     </div>
   </div>

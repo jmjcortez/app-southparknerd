@@ -5,6 +5,7 @@ import { CharacterService } from 'src/app/services/character.service';
 import { Character } from 'src/app/models/character';
 import { Episode } from 'src/app/models/episode';
 import { EpisodeService } from 'src/app/services/episode.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-episode-generator-page',
@@ -25,7 +26,7 @@ import { EpisodeService } from 'src/app/services/episode.service';
         height : '0px',
       })),
       state('reveal', style({
-        height : '1000px',
+        height : '100%',
       })),
       transition('hidden <=> reveal', animate('400ms ease-in')),
     ]),
@@ -41,6 +42,7 @@ export class EpisodeGeneratorPageComponent implements OnInit {
 
   characters: Character[];
   episode: Episode;
+  error: HttpErrorResponse;
 
   episodeQuery = {
     isClassic: 0,
@@ -70,10 +72,8 @@ export class EpisodeGeneratorPageComponent implements OnInit {
   }
 
   getCharacters = (): void => {
-    this.characterService.getCharacter().subscribe(
+    this.characterService.getCharacters().subscribe(
       (data) => {
-        this.characters = data.characters;
-
         this.episodeQuery.characters = data.characters.map(
           character => {
             return {
@@ -94,14 +94,23 @@ export class EpisodeGeneratorPageComponent implements OnInit {
     this.episodeQuery.isClassic = isClassic;
   }
 
+  toggleCharacter = (index: number): void => {
+    this.episodeQuery.characters[index].selected = !this.episodeQuery.characters[index].selected;
+  }
+
   generateEpisode = (): void => {
     this.generatingEpisode = true;
 
-    this.episodeService.getCharacter().subscribe(
+    this.episodeService.getEpisode(this.episodeQuery).subscribe(
       (episode) => {
         this.generatingEpisode = false;
         this.episode = episode;
-        console.log(this.episode);
+        this.error = null;
+      },
+      (error) => {
+        this.generatingEpisode = false;
+        this.episode = null;
+        this.error = error;
       }
     );
   }

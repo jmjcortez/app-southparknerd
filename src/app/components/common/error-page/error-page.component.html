@@ -2,6 +2,7 @@
   <img src="https://res.cloudinary.com/jmjcortez/image/upload/v1603787322/south%20park%20blog/assets/error_avatar_jzr9rz.png" />
   <div class="error-content-container section-title">
     There seems to be a problem in this page
-    <button type="button" class="btn btn-danger">Back To Home</button>
+    <button type="button" class="btn btn-danger" *ngIf="!isGenerationPage">Back To Home</button>
+    <div class="southpark-font" *ngIf="isGenerationPage">Try again</div>
   </div>
 </div>

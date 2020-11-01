@@ -12,7 +12,40 @@ export class EpisodeService {
 
   constructor(private http: HttpClient) { }
 
-  getCharacter = (): Observable<Episode> => {
-    return this.http.get<Episode>(`${this.episodesUrl}random/`);
+  getEpisode = (episodeQuery: any): Observable<Episode> => {
+    const query = this.formatQuery(episodeQuery);
+
+    return this.http.get<Episode>(`${this.episodesUrl}random/?${query}`);
+  }
+
+  formatQuery = (episodeQuery: any): string => {
+    let query = '';
+    let characterQuery = '';
+
+    if (episodeQuery.isClassic) {
+      query = query.concat('&is_classic=1');
+    }
+
+    episodeQuery.seasons.map(
+      (season: any) => {
+        if (season.selected) {
+          query = query.concat(`&seasons=${season.number}`);
+        }
+      }
+    );
+
+    episodeQuery.characters.map(
+      (character: any) => {
+        if (character.selected) {
+          characterQuery = characterQuery.concat(`&characters=${character.name}`);
+        }
+      }
+    );
+
+    if (characterQuery !== '') {
+      query = query.concat(characterQuery);
+    }
+
+    return query;
   }
 }

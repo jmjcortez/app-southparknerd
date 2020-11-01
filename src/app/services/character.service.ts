@@ -13,7 +13,7 @@ export class CharacterService {
 
   constructor(private http: HttpClient) { }
 
-  getCharacter = (): Observable<CharacterList> => {
+  getCharacters = (): Observable<CharacterList> => {
     return this.http.get<CharacterList>(this.charactersUrl);
   }
 }
