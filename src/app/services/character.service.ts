@@ -3,13 +3,14 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 import { CharacterList } from '../models/character';
+import { API } from '../../constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CharacterService {
 
-  charactersUrl = 'http://127.0.0.1:8000/api/characters/';
+  charactersUrl = `${API}characters/`;
 
   constructor(private http: HttpClient) { }
 

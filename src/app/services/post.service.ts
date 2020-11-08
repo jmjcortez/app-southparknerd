@@ -4,12 +4,14 @@ import { HttpClient } from '@angular/common/http';
 
 import { Post, PostList } from '../models/post';
 
+import { API } from '../../constants';
+
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  postsUrl = 'http://127.0.0.1:8000/api/posts/';
+  postsUrl = `${API}posts/`;
 
   constructor(private http: HttpClient) { }
 

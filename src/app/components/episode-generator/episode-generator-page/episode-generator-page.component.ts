@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 import { CharacterService } from 'src/app/services/character.service';
@@ -43,6 +43,7 @@ export class EpisodeGeneratorPageComponent implements OnInit {
   characters: Character[];
   episode: Episode;
   error: HttpErrorResponse;
+  returnedEmptyEpisode = false;
 
   episodeQuery = {
     isClassic: 0,
@@ -100,11 +101,20 @@ export class EpisodeGeneratorPageComponent implements OnInit {
 
   generateEpisode = (): void => {
     this.generatingEpisode = true;
+    this.returnedEmptyEpisode = false;
 
     this.episodeService.getEpisode(this.episodeQuery).subscribe(
       (episode) => {
         this.generatingEpisode = false;
-        this.episode = episode;
+
+        if (Object.keys(episode).length) {
+          this.episode = episode;
+        }
+        else {
+          this.episode = null;
+          this.returnedEmptyEpisode = true;
+        }
+
         this.error = null;
       },
       (error) => {
@@ -115,4 +125,11 @@ export class EpisodeGeneratorPageComponent implements OnInit {
     );
   }
 
+}
+
+@Pipe({name: 'getImgUrl'})
+export class GetImgUrl implements PipeTransform {
+  transform(url: string): string {
+    return url.split('/revision')[0];
+  }
 }

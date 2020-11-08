@@ -16,6 +16,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppUiModule } from './components/common/app-ui.module';
 import { EpisodeGeneratorPageComponent } from './components/episode-generator/episode-generator-page/episode-generator-page.component';
 import { CharacterCardComponent } from './components/episode-generator/character-card/character-card.component';
+import { GetImgUrl } from './components/episode-generator/episode-generator-page/episode-generator-page.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CharacterCardComponent } from './components/episode-generator/character
     ErrorPageComponent,
     EpisodeGeneratorPageComponent,
     CharacterCardComponent,
+    GetImgUrl,
   ],
   imports: [
     BrowserModule,

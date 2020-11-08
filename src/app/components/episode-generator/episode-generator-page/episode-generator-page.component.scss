@@ -13,6 +13,11 @@
     display: flex;
     margin-bottom: 50px;
 
+    .empty-episode {
+      text-align: center;
+      font-size: 30px;
+    }
+
     .thumbnail {
       width: 400px;
       margin-right: 15px;
@@ -177,6 +182,10 @@
 
       .texts-container {
         margin-left: 10px;
+      }
+
+      .thumbnail {
+        width: 100%;
       }
     }
 

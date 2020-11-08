@@ -11,14 +11,18 @@
     <app-error-page [isGenerationPage]="true"></app-error-page>
   </div>
 
+  <div class="episode-container" *ngIf="returnedEmptyEpisode">
+    <span class="empty-episode southpark-font">No episode found matching your query. Try a different one</span>
+  </div>
+
   <div class="episode-container" *ngIf="episode && !generatingEpisode">
-    <img class="thumbnail" src="https://i.kym-cdn.com/photos/images/newsfeed/000/952/854/835.gif">
+    <img class="thumbnail" src="{{episode.screenshot_url | getImgUrl}}">
     <div class="texts-container">
       <span class="southpark-font title">{{episode.title}}</span>
       <div 
       class="badge badge-success southpark-font"
       data-toggle="tooltip" data-placement="top" title="Considered as one of the top episodes"
-      *ngIf="episode.rating > 8.9">
+      *ngIf="episode.rating > 8.7">
         Classic
       </div>
       <span class="episode-code"><b>Season:</b> {{episode.season}} <b>Episode:</b> {{episode.episode_number}}</span>
@@ -93,7 +97,7 @@
     </div>
     <div class="content-container character-list-container" [@collapsechracters]='charactersHidden'>
       <span class="filter-title southpark-font characters-title">Select which character/s you want to watch?</span>
-      <span style="width: 100%">Our algorithm will return an episode that includes all the selected characters. If none is selected, it will show any character</span>
+      <span style="width: 100%">Our algorithm will return an episode where all the selected characters are relevant to the plot OR has a significant amount of screen time. If none is selected, it will show any character</span>
       <div class="character-card" *ngFor="let character of episodeQuery.characters; let i = index">
           <img 
           class="pic" 

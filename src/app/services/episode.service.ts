@@ -3,12 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Episode } from '../models/episode';
 
+import { API } from '../../constants';
+
 @Injectable({
   providedIn: 'root'
 })
 export class EpisodeService {
 
-  episodesUrl = 'http://127.0.0.1:8000/api/episodes/';
+  episodesUrl = `${API}episodes/`;
 
   constructor(private http: HttpClient) { }
 
